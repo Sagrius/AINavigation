@@ -18,12 +18,12 @@ public class SimpleAITrigger : MonoBehaviour
 
     void Update()
     {
-        // Simulate chasing if the target is close
-        if (target != null && Vector3.Distance(transform.position, target.position) < 15f)
+
+        if (target != null && Vector3.Distance(transform.position, target.position) < 10000)
         {
             Chase();
         }
-        // Otherwise, if the path is complete, find the next patrol point
+       
         else if (moveController.IsPathComplete())
         {
             Patrol();
@@ -32,13 +32,13 @@ public class SimpleAITrigger : MonoBehaviour
 
     void Chase()
     {
-        // Behavior Graph would transition to "Chase" state and run this logic
+        
         moveController.RequestPath(target.position, "AStar");
     }
 
     void Patrol()
     {
-        // Behavior Graph would be in "Patrol" state
+        
         if (patrolPoints.Length == 0) return;
 
         moveController.RequestPath(patrolPoints[patrolIndex].position, "Greedy");

@@ -1,4 +1,3 @@
-// --- AgentMetrics.cs ---
 using UnityEngine;
 #if UNITY_EDITOR
 using UnityEditor;

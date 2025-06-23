@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cf9dc3c8b625e034ea7f760fa07996f2, type: 3}
   m_Name: Profile1
   m_EditorClassIdentifier: 
-  moveSpeed: 2
+  moveSpeed: 4
   acceleration: 8
   turningDeceleration: 0.8
   turningPenalty: 10

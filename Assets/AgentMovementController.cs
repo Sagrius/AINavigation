@@ -1,4 +1,3 @@
-// --- AgentMovementController.cs ---
 using UnityEngine;
 using System.Collections.Generic;
 
@@ -6,7 +5,7 @@ using System.Collections.Generic;
 public class AgentMovementController : MonoBehaviour
 {
     public AgentProfile profile;
-    public Pathfinder pathfinder; // Assign this in the inspector
+    public Pathfinder pathfinder; 
 
     private List<Node> path;
     private int targetIndex;
@@ -18,7 +17,7 @@ public class AgentMovementController : MonoBehaviour
         agentMetrics = GetComponent<AgentMetrics>();
     }
 
-    // This method will be called by the Behavior Graph Task
+  
     public void RequestPath(Vector3 targetPosition, string algorithm)
     {
         PathResult result = pathfinder.FindPath(transform.position, targetPosition, profile, algorithm);
@@ -27,7 +26,7 @@ public class AgentMovementController : MonoBehaviour
             path = result.path;
             targetIndex = 0;
 
-            // Calculate total path distance for metrics
+            
             float distance = 0f;
             for (int i = 0; i < path.Count - 1; i++)
             {
@@ -52,7 +51,7 @@ public class AgentMovementController : MonoBehaviour
         if (!IsPathComplete())
         {
             Vector3 targetPosition = path[targetIndex].worldPosition;
-            // Move agent
+            
             transform.position = Vector3.MoveTowards(transform.position, targetPosition, currentSpeed * Time.deltaTime);
 
             if (Vector3.Distance(transform.position, targetPosition) < 0.1f)
@@ -65,12 +64,12 @@ public class AgentMovementController : MonoBehaviour
                 }
                 else
                 {
-                    // Apply turning deceleration
+                    
                     currentSpeed *= profile.turningDeceleration;
                 }
             }
         }
-        // Apply acceleration
+
         currentSpeed = Mathf.Lerp(currentSpeed, profile.moveSpeed, Time.deltaTime * profile.acceleration);
     }
 

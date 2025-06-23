@@ -1,4 +1,3 @@
-// --- Node.cs ---
 using UnityEngine;
 
 public class Node
@@ -8,10 +7,10 @@ public class Node
     public int gridX;
     public int gridY;
 
-    // Pathfinding data
-    public int gCost; // Cost from the starting node
-    public int hCost; // Heuristic cost to the target node
-    public Node parent; // The node that came before this one in the path
+ 
+    public int gCost; 
+    public int hCost; 
+    public Node parent; 
 
     public int fCost
     {

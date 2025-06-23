@@ -1,4 +1,3 @@
-// --- GridManager.cs ---
 using UnityEngine;
 using System.Collections.Generic;
 
@@ -60,7 +59,7 @@ public class GridManager : MonoBehaviour
                 if (x == 0 && y == 0)
                     continue;
 
-                // Skip diagonal movement if not allowed
+                
                 if (!profile.canMoveDiagonally && Mathf.Abs(x) == 1 && Mathf.Abs(y) == 1)
                     continue;
 

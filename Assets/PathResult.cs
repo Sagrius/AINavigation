@@ -1,4 +1,3 @@
-// --- PathResult.cs ---
 using System.Collections.Generic;
 
 public class PathResult

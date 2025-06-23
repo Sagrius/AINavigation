@@ -1,7 +1,6 @@
-// --- Pathfinder.cs ---
 using UnityEngine;
 using System.Collections.Generic;
-using System.Diagnostics; // For Stopwatch
+using System.Diagnostics; 
 
 public class Pathfinder : MonoBehaviour
 {
@@ -28,7 +27,7 @@ public class Pathfinder : MonoBehaviour
                 bool isLowerFCost = openSet[i].fCost < currentNode.fCost;
                 bool isSameFCostButLowerHCost = openSet[i].fCost == currentNode.fCost && openSet[i].hCost < currentNode.hCost;
 
-                // For Greedy, we only care about hCost
+               
                 if (algorithmType == "Greedy")
                 {
                     if (openSet[i].hCost < currentNode.hCost)
@@ -36,7 +35,7 @@ public class Pathfinder : MonoBehaviour
                         currentNode = openSet[i];
                     }
                 }
-                // For A* and Dijkstra, use the fCost logic
+               
                 else if (isLowerFCost || isSameFCostButLowerHCost)
                 {
                     currentNode = openSet[i];
@@ -63,7 +62,7 @@ public class Pathfinder : MonoBehaviour
 
                 int moveCost = currentNode.gCost + GetDistance(currentNode, neighbour);
 
-                // Add turning penalty
+               
                 if (currentNode.parent != null)
                 {
                     Vector2 dirOld = new Vector2(currentNode.gridX - currentNode.parent.gridX, currentNode.gridY - currentNode.parent.gridY);
@@ -87,7 +86,7 @@ public class Pathfinder : MonoBehaviour
         }
 
         sw.Stop();
-        return new PathResult(null, sw.ElapsedMilliseconds / 1000f, nodesProcessed, algorithmType); // No path found
+        return new PathResult(null, sw.ElapsedMilliseconds / 1000f, nodesProcessed, algorithmType);
     }
 
     private List<Node> RetracePath(Node startNode, Node endNode)
