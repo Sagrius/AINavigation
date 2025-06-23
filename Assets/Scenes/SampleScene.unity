@@ -970,6 +970,7 @@ GameObject:
   - component: {fileID: 1116521088}
   - component: {fileID: 1116521087}
   - component: {fileID: 1116521086}
+  - component: {fileID: 1116521092}
   m_Layer: 0
   m_Name: AGENT (2)
   m_TagString: Untagged
@@ -1093,12 +1094,26 @@ Transform:
   m_GameObject: {fileID: 1116521085}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 9.214878, y: 2.011475, z: -10.622934}
+  m_LocalPosition: {x: 23.6, y: 2.011475, z: -10.622934}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1116521092
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1116521085}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 21f481f5c343bc242bcc28b9eed622f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target: {fileID: 926308993647100395}
+  patrolPoints: []
 --- !u!1001 &1259351986
 PrefabInstance:
   m_ObjectHideFlags: 0
