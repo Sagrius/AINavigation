@@ -5,7 +5,8 @@ using System.Diagnostics;
 public class Pathfinder : MonoBehaviour
 {
     public GridManager gridManager;
-
+    const string GREEDY = "Greedy"; 
+    const string ASTAR = "AStar";
     public PathResult FindPath(Vector3 startPos, Vector3 targetPos, AgentProfile profile, string algorithmType)
     {
         Stopwatch sw = new Stopwatch();
@@ -28,7 +29,7 @@ public class Pathfinder : MonoBehaviour
                 bool isSameFCostButLowerHCost = openSet[i].fCost == currentNode.fCost && openSet[i].hCost < currentNode.hCost;
 
                
-                if (algorithmType == "Greedy")
+                if (algorithmType == GREEDY)
                 {
                     if (openSet[i].hCost < currentNode.hCost)
                     {
@@ -36,7 +37,9 @@ public class Pathfinder : MonoBehaviour
                     }
                 }
                
-                else if (isLowerFCost || isSameFCostButLowerHCost)
+
+                //This checks for aStar
+                else if (algorithmType == ASTAR && isLowerFCost || isSameFCostButLowerHCost)
                 {
                     currentNode = openSet[i];
                 }
